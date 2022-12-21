@@ -39,15 +39,51 @@
             <field name="name">Employee List</field>
             <field name="model">employee.list</field>
             <field name="arch" type="xml">
-                <tree>
+                <tree create="false" edit="false">
                     <field name="name"/>
                     <field name="appraisal_name"/>
-                    <field name="date"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
                     <field name="category"/>
                     <field name="potential"/>
                     <field name="performance"/>
                     <field name="employee_period_id" invisible="1"/>
                 </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="employee_list_form">
+            <field name="name">Employee List</field>
+            <field name="model">employee.list</field>
+            <field name="arch" type="xml">
+                <form create="false" edit="false">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="appraisal_name"/>
+                        </group>
+                        <group>
+                            <group>
+                                    <field name="start_date"/>
+                                </group>
+                                <group>
+                                    <field name="end_date"/>
+                                </group>
+                            </group>
+                        <group>
+                            <field name="category"/>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="potential"/>
+                            </group>
+                            <group>
+                                <field name="performance"/>
+                            </group>
+                        </group>
+                 </sheet>
+                </form>
             </field>
         </record>
         <record model="ir.actions.act_window" id="action_employee_list">

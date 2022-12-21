@@ -4,8 +4,9 @@
             <field name="name">Appraisal Period</field>
             <field name="model">appraisal.period</field>
             <field name="arch" type="xml">
-                <tree decoration-danger="state == 'close'"
-                decoration-info="state == 'active'">
+                <tree create="false" edit="false"
+                      decoration-danger="state == 'close'"
+                      decoration-info="state == 'active'">
                     <field name="name"/>
                     <field name="start_date"/>
                     <field name="end_date"/>
@@ -17,7 +18,7 @@
             <field name="name">tes.appraisal.period</field>
             <field name="model">appraisal.period</field>
             <field name="arch" type="xml">
-                <form>
+                <form create="false" edit="false">
 
                     <script>
                         function allowDrop(ev) {
@@ -80,7 +81,8 @@
                         url:"/for_create_list",
                         data: data1,
                         });
-
+                        alert("Dropped Successfully");
+                        window.location.reload();
                         }
                         function drop2(ev) {
                         ev.preventDefault();
@@ -118,9 +120,8 @@
                         url:"/for_create_list",
                         data: data1,
                         });
-
-
-
+                        alert("Dropped Successfully");
+                        window.location.reload();
                         }
                         function drop3(ev) {
                         ev.preventDefault();
@@ -157,8 +158,8 @@
                         url:"/update_employee",
                         data: data2,
                         });
-
-
+                        alert("Dropped Successfully");
+                        window.location.reload();
                         }function drop4(ev) {
                         ev.preventDefault();
                         let data = ev.dataTransfer.getData("text");
@@ -194,8 +195,8 @@
                         url:"/update_employee",
                         data: data2,
                         });
-
-
+                        alert("Dropped Successfully");
+                        window.location.reload();
                         }function drop5(ev) {
                         ev.preventDefault();
                         let data = ev.dataTransfer.getData("text");
@@ -231,8 +232,8 @@
                         url:"/update_employee",
                         data: data2,
                         });
-
-
+                        alert("Dropped Successfully");
+                        window.location.reload();
                         }function drop6(ev) {
                         ev.preventDefault();
                         let data = ev.dataTransfer.getData("text");
@@ -268,8 +269,8 @@
                         url:"/update_employee",
                         data: data2,
                         });
-
-
+                        alert("Dropped Successfully");
+                        window.location.reload();
                         }function drop7(ev) {
                         ev.preventDefault();
                         let data = ev.dataTransfer.getData("text");
@@ -305,8 +306,8 @@
                         url:"/update_employee",
                         data: data2,
                         });
-
-
+                        alert("Dropped Successfully");
+                        window.location.reload();
                         }function drop8(ev) {
                         ev.preventDefault();
                         let data = ev.dataTransfer.getData("text");
@@ -342,8 +343,8 @@
                         url:"/update_employee",
                         data: data2,
                         });
-
-
+                        alert("Dropped Successfully");
+                        window.location.reload();
                         }function drop9(ev) {
                         ev.preventDefault();
                         let data = ev.dataTransfer.getData("text");
@@ -379,7 +380,8 @@
                         url:"/update_employee",
                         data: data2,
                         });
-
+                        alert("Dropped Successfully");
+                        window.location.reload();
                         }function dragpotentialgem(ev) {
                         let text = ev.srcElement.textContent;
                         let target = ev.target.id
@@ -513,48 +515,120 @@
                         function myFunction3() {
                         $(document).ready(function(){
                         $(".o_potential_gem").show();
+                        $(".o_high_potential").hide();
+                        $(".o_star").hide();
+                        $(".o_inconsistent").hide();
+                        $(".o_core").hide();
+                        $(".o_highp").hide();
+                        $(".o_risk").hide();
+                        $(".o_average").hide();
+                        $(".o_solid").hide();
                         });
                         console.log('sucess');
                         }
                         function showhighpotential() {
                         $(document).ready(function(){
                         $(".o_high_potential").show();
+                        $(".o_potential_gem").hide();
+                        $(".o_star").hide();
+                        $(".o_inconsistent").hide();
+                        $(".o_core").hide();
+                        $(".o_highp").hide();
+                        $(".o_risk").hide();
+                        $(".o_average").hide();
+                        $(".o_solid").hide();
                         });
                         console.log('sucess');
                         }
                         function showstar() {
                         $(document).ready(function(){
                         $(".o_star").show();
+                        $(".o_potential_gem").hide();
+                        $(".o_high_potential").hide();
+                        $(".o_inconsistent").hide();
+                        $(".o_core").hide();
+                        $(".o_highp").hide();
+                        $(".o_risk").hide();
+                        $(".o_average").hide();
+                        $(".o_solid").hide();
                         });
                         }
                         function showinconsistent() {
                         $(document).ready(function(){
                         $(".o_inconsistent").show();
+                        $(".o_potential_gem").hide();
+                        $(".o_high_potential").hide();
+                        $(".o_star").hide();
+                        $(".o_core").hide();
+                        $(".o_highp").hide();
+                        $(".o_risk").hide();
+                        $(".o_average").hide();
+                        $(".o_solid").hide();
                         });
                         }
                         function showcore() {
                         $(document).ready(function(){
                         $(".o_core").show();
+                        $(".o_potential_gem").hide();
+                        $(".o_high_potential").hide();
+                        $(".o_star").hide();
+                        $(".o_inconsistent").hide();
+                        $(".o_highp").hide();
+                        $(".o_risk").hide();
+                        $(".o_average").hide();
+                        $(".o_solid").hide();
                         });
                         }
                         function showhigh() {
                         $(document).ready(function(){
                         $(".o_highp").show();
+                        $(".o_potential_gem").hide();
+                        $(".o_high_potential").hide();
+                        $(".o_star").hide();
+                        $(".o_inconsistent").hide();
+                        $(".o_core").hide();
+                        $(".o_risk").hide();
+                        $(".o_average").hide();
+                        $(".o_solid").hide();
                         });
                         }
                         function showrisk() {
                         $(document).ready(function(){
                         $(".o_risk").show();
+                        $(".o_potential_gem").hide();
+                        $(".o_high_potential").hide();
+                        $(".o_star").hide();
+                        $(".o_inconsistent").hide();
+                        $(".o_core").hide();
+                        $(".o_highp").hide();
+                        $(".o_average").hide();
+                        $(".o_solid").hide();
                         });
                         }
                         function showaverage() {
                         $(document).ready(function(){
                         $(".o_average").show();
+                        $(".o_potential_gem").hide();
+                        $(".o_high_potential").hide();
+                        $(".o_star").hide();
+                        $(".o_inconsistent").hide();
+                        $(".o_core").hide();
+                        $(".o_highp").hide();
+                        $(".o_risk").hide();
+                        $(".o_solid").hide();
                         });
                         }
                         function showsolid() {
                         $(document).ready(function(){
                         $(".o_solid").show();
+                        $(".o_potential_gem").hide();
+                        $(".o_high_potential").hide();
+                        $(".o_star").hide();
+                        $(".o_inconsistent").hide();
+                        $(".o_core").hide();
+                        $(".o_highp").hide();
+                        $(".o_risk").hide();
+                        $(".o_average").hide();
                         });
                         }
                         function closepotential() {
@@ -739,23 +813,28 @@
                         });
                         }
                     </script>
-                    <header>
-                        <field name="state" widget="statusbar"
-                               statusbar_visible=" "/>
-                    </header>
-                    <group>
-                        <group>
+
+<!--                    <header>-->
+<!--                        <field name="state" widget="statusbar"-->
+<!--                               statusbar_visible=" "/>-->
+<!--                    </header>-->
+
+                        <div class="title" style="text-align:center;">
+                            <h2>
                             <field name="name"/>
-                        </group>
-                        <group>
-                            <group>
-                                <field name="start_date"/>
-                            </group>
-                            <group>
+                            </h2>
+                        </div>
+                        <div class="title" style="text-align:center;">
+
+                            <h4>
+                                <field name="start_date"/>  -
                                 <field name="end_date"/>
-                            </group>
-                        </group>
-                    </group>
+                            </h4>
+
+
+
+                        </div>
+
                     <div class="row">
                         <div class="o_appraisal"/>
                         <div class="o_partner_order_summary"/>

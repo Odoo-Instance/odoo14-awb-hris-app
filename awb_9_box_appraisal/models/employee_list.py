@@ -13,7 +13,8 @@ class EmployeeList(models.Model):
                                  ('mp_hp', 'High Performer'),
                                  ('lp_lp', 'Risk'),
                                  ('lp_mp', 'Average Performer'),
-                                 ('lp_hp', 'Solid Performer')])
+                                 ('lp_hp', 'Solid Performer')],compute="compute_category",
+                                store=True)
     potential = fields.Selection([('high', 'High'),
                                   ('moderate', 'Moderate'),
                                   ('low', 'Low')],
@@ -23,6 +24,29 @@ class EmployeeList(models.Model):
                                     ('low', 'Low')],
                                    string="Performance")
     appraisal_name = fields.Many2one('appraisal.period',
-                                     string="Appraisal Periode")
-    date = fields.Date(string="Appraisal Date")
+                                     string="Appraisal Period")
+    start_date = fields.Date(string="Appraisal Start Date")
+    end_date = fields.Date(string="Appraisal End Date")
     employee_period_id = fields.Many2one('period', string="Employee Period")
+
+    @api.depends('potential', 'performance')
+    def compute_category(self):
+        if self.potential == 'high' and self.performance == 'low':
+            self.category = 'hp_lp'
+        if self.potential == 'high' and self.performance == 'moderate':
+            self.category = 'hp_mp'
+        if self.potential == 'high' and self.performance == 'high':
+            self.category = 'hp_hp'
+        if self.potential == 'moderate' and self.performance == 'low':
+            self.category = 'mp_lp'
+        if self.potential == 'moderate' and self.performance == 'moderate':
+            self.category = 'mp_mp'
+        if self.potential == 'moderate' and self.performance == 'high':
+            self.category = 'mp_hp'
+        if self.potential == 'low' and self.performance == 'low':
+            self.category = 'lp_lp'
+        if self.potential == 'low' and self.performance == 'moderate':
+            self.category = 'lp_mp'
+        if self.potential == 'low' and self.performance == 'high':
+            self.category = 'lp_hp'
+
