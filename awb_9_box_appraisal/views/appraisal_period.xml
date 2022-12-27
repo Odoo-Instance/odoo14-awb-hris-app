@@ -14,6 +14,22 @@
                 </tree>
             </field>
         </record>
+        <record model="ir.ui.view" id="appraisal_period_graph">
+            <field name="name">Appraisal Period Graph</field>
+            <field name="model">appraisal.period</field>
+            <field name="arch" type="xml">
+                <graph type="pie">
+                </graph>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="appraisal_period_pivot">
+            <field name="name">Appraisal Period Pivot</field>
+            <field name="model">appraisal.period</field>
+            <field name="arch" type="xml">
+                <pivot>
+                </pivot>
+            </field>
+        </record>
         <record id="appraisal_period1" model="ir.ui.view">
             <field name="name">tes.appraisal.period</field>
             <field name="model">appraisal.period</field>
@@ -814,10 +830,10 @@
                         }
                     </script>
 
-<!--                    <header>-->
-<!--                        <field name="state" widget="statusbar"-->
-<!--                               statusbar_visible=" "/>-->
-<!--                    </header>-->
+                    <div style="text-align:right;">
+                        <button type="object" name="show_graph"
+                                icon="fa-pie-chart"/>
+                    </div>
 
                         <div class="title" style="text-align:center;">
                             <h2>

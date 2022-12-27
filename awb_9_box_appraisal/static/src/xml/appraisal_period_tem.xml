@@ -4,7 +4,7 @@
         <div style="width: 100%; padding-top: 10px;">
         <div class="o_dynamic_dashboard"
              style="width: 20%; height: 100%; float: left; background: ; margin-left: 10%;">
-            <div class="card" style="height:auto;width:200px;">
+            <div class="card" style="height:auto;width:300px;">
             <div class="card-header">
                         <div class="row">
                             <div style="margin: auto;">
@@ -24,8 +24,9 @@
                     </t>
                                </ul>
         </div>
+
         </div>
-            <div style="height: auto; background: ; width: 1000%; margin-left:400px ; padding-left:50px">
+            <div style="height: auto; background: ; width: 1000%; margin-left:500px ; padding-left:50px">
             <div class="row">
                  <div class="card1" style="height:240px; width:250px;"
                       id="item1" draggable="true"
@@ -339,7 +340,9 @@
                     </div>
                 </div>
                 </div>
+
         </div>
+
     </div>
     </t>
     <t t-name="employeelist">
@@ -360,13 +363,13 @@
             </div>
     </t>
     <t t-name="potential_gem" owl="1">
-        <div class="card" style="height:auto;width:200px;">
+        <div class="card" style="height:auto;width:300px;">
             <div class="card-header">
                         <div class="row">
                             <div style="margin: auto;">
                             <h5>Potential Gem</h5>
                             </div>
-                            <div>
+                            <div style="margin-right: 10px;">
                 <button sclass="btn" onclick="closepotential()"><i class="fa fa-close"></i></button>
                         </div>
                         </div>
@@ -392,13 +395,13 @@
 
     </t>
     <t t-name="high_potential" owl="1">
-        <div class="card" style="height:auto;width:200px;">
+        <div class="card" style="height:auto;width:300px;">
             <div class="card-header">
                         <div class="row">
                             <div style="margin: auto;">
                             <h5>High Potential</h5>
                             </div>
-                            <div>
+                            <div style="margin-right: 10px;">
                 <button sclass="btn" onclick="closehigh()"><i class="fa fa-close"></i></button>
                         </div>
                         </div>
@@ -421,13 +424,13 @@
         </div>
     </t>
     <t t-name="star" owl="1">
-        <div class="card" style="height:auto;width:200px;">
+        <div class="card" style="height:auto;width:300px;">
             <div class="card-header">
                         <div class="row">
                             <div style="margin: auto;">
                             <h5>Star</h5>
                             </div>
-                            <div>
+                            <div style="margin-right: 10px;">
                 <button sclass="btn" onclick="closestar()"><i class="fa fa-close"></i></button>
                         </div>
                         </div>
@@ -449,13 +452,13 @@
         </div>
     </t>
     <t t-name="inconsistent" owl="1">
-        <div class="card" style="height:auto;width:200px;">
+        <div class="card" style="height:auto;width:300px;">
             <div class="card-header">
                         <div class="row">
                             <div style="margin: auto;">
                             <h5>Inconsistent</h5>
                             </div>
-                            <div>
+                            <div style="margin-right: 10px;">
                 <button sclass="btn" onclick="closeinconsistent()"><i class="fa fa-close"></i></button>
                         </div>
                         </div>
@@ -478,13 +481,13 @@
         </div>
     </t>
     <t t-name="corep" owl="1">
-        <div class="card" style="height:auto;width:200px;">
+        <div class="card" style="height:auto;width:300px;">
             <div class="card-header">
                         <div class="row">
                             <div style="margin: auto;">
                             <h5>Core Player</h5>
                             </div>
-                            <div>
+                            <div style="margin-right: 10px;">
                 <button sclass="btn" onclick="closecore()"><i class="fa fa-close"></i></button>
                         </div>
                         </div>
@@ -506,13 +509,13 @@
         </div>
     </t>
     <t t-name="highp" owl="1">
-        <div class="card" style="height:auto;width:200px;">
+        <div class="card" style="height:auto;width:300px;">
             <div class="card-header">
                         <div class="row">
                             <div style="margin: auto;">
                             <h5>High Performer</h5>
                             </div>
-                            <div>
+                            <div style="margin-right: 10px;">
                 <button sclass="btn" onclick="closehighp()"><i class="fa fa-close"></i></button>
                         </div>
                         </div>
@@ -534,13 +537,13 @@
         </div>
     </t>
     <t t-name="risk" owl="1">
-        <div class="card" style="height:auto;width:200px;">
+        <div class="card" style="height:auto;width:300px;">
             <div class="card-header">
                         <div class="row">
                             <div style="margin: auto;">
                             <h5>Risk</h5>
                             </div>
-                            <div>
+                            <div style="margin-right: 10px;">
                 <button sclass="btn" onclick="closerisk()"><i class="fa fa-close"></i></button>
                         </div>
                         </div>
@@ -559,13 +562,13 @@
         </div>
     </t>
     <t t-name="average" owl="1">
-        <div class="card" style="height:auto;width:200px;">
+        <div class="card" style="height:auto;width:300px;">
             <div class="card-header">
                         <div class="row">
                             <div style="margin: auto;">
                             <h5>Average Performer</h5>
                             </div>
-                            <div>
+                            <div style="margin-right: 10px;">
                 <button sclass="btn" onclick="closeaverage()"><i class="fa fa-close"></i></button>
                         </div>
                         </div>
@@ -585,13 +588,13 @@
         </div>
     </t>
     <t t-name="solid" owl="1">
-        <div class="card" style="height:auto;width:200px;">
+        <div class="card" style="height:auto;width:300px;">
             <div class="card-header">
                         <div class="row">
                             <div style="margin: auto;">
                             <h5>Solid Performer</h5>
                             </div>
-                            <div>
+                            <div style="margin-right: 10px;">
                 <button sclass="btn" onclick="closesolid()"><i class="fa fa-close"></i></button>
                         </div>
                         </div>

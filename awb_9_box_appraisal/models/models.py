@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
+from odoo.exceptions import  UserError
 
 
 class AppraisalMenu(models.Model):
@@ -8,13 +9,16 @@ class AppraisalMenu(models.Model):
     _description = "Appraisal Menu"
     _rec_name = "name"
 
-    name = fields.Char(string="Appraisal Period")
+    name = fields.Char(string="Appraisal Period", required=True)
     start_date = fields.Date(string="Start Date", required=True)
     end_date = fields.Date(string="End Date", required=True)
     period_id = fields.Integer(string="Period Id")
 
     @api.model
     def create(self, vals):
+        appraisal_obj = self.env['appraisal.period'].search([('name', '=', vals['name'])])
+        if appraisal_obj:
+            raise UserError('Appraisal name already exist')
         values = {
             'name': vals['name'],
             'start_date': vals['start_date'],

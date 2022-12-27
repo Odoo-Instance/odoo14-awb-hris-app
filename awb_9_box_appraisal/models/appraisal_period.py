@@ -16,6 +16,7 @@ class AppraisalPeriod(models.Model):
         string='State', compute="compute_state")
 
     # period_value = fields.Integer(string="id")
+
     def compute_state(self):
         # self.state = 'active'
         today = date.today()
@@ -26,6 +27,18 @@ class AppraisalPeriod(models.Model):
                 rec.state = 'inactive'
             elif today > rec.end_date:
                 rec.state = 'close'
+
+    def show_graph(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Graph View',
+            'view_mode': 'graph',
+            'view_type': 'graph',
+            'res_model': 'employee.list',
+            'target': 'current',
+           'domain':[['appraisal_name','=',self.id]],
+            'context': {'group_by': ['category']}
+        }
 
 
 class period(models.Model):

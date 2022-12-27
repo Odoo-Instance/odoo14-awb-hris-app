@@ -43,7 +43,7 @@
         <record id="appraisal_period" model="ir.actions.act_window">
             <field name="name">Appraisal period</field>
             <field name="res_model">appraisal.period</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,graph,pivot</field>
         </record>
 
 

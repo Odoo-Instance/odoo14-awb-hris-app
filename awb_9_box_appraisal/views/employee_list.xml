@@ -51,6 +51,25 @@
                 </tree>
             </field>
         </record>
+        <record model="ir.ui.view" id="employee_list_graph">
+            <field name="name">Employee List Graph</field>
+            <field name="model">employee.list</field>
+            <field name="arch" type="xml">
+                <graph type="pie">
+                </graph>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="employee_list_pivot">
+            <field name="name">Employee List Pivot</field>
+            <field name="model">employee.list</field>
+            <field name="arch" type="xml">
+                <pivot>
+<!--                     <field name="name" type="col"/>-->
+<!--                    <field name="appraisal_name" type="col"/>-->
+<!--                    <field name="category" type="col"/>-->
+                </pivot>
+            </field>
+        </record>
         <record model="ir.ui.view" id="employee_list_form">
             <field name="name">Employee List</field>
             <field name="model">employee.list</field>
@@ -89,7 +108,8 @@
         <record model="ir.actions.act_window" id="action_employee_list">
             <field name="name">Employee List</field>
             <field name="res_model">employee.list</field>
-            <field name="view_mode">tree,kanban,form</field>
+            <field name="view_mode">tree,kanban,form,graph,pivot</field>
+            <field name="context">{"search_default_appraisal_period":1,"search_default_employee_category":1}</field>
         </record>
         <menuitem name="Employee List" id="employee_list1"
                   parent="main_menu_appraisal"/>
