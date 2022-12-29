@@ -7,9 +7,9 @@ class AppraisalPeriod(models.Model):
     _name = "appraisal.period"
     _description = "Appraisal"
 
-    name = fields.Char(string="Appraisal Period")
-    start_date = fields.Date(string="Start Date")
-    end_date = fields.Date(string="End Date")
+    name = fields.Char(string="Appraisal Period", readonly=True)
+    start_date = fields.Date(string="Start Date", readonly=True)
+    end_date = fields.Date(string="End Date", readonly=True)
     employee_id = fields.Many2one('hr.employee')
     state = fields.Selection(
         [('inactive', 'Inactive'), ('active', 'Active'), ('close', 'Closed')],
@@ -28,12 +28,27 @@ class AppraisalPeriod(models.Model):
             elif today > rec.end_date:
                 rec.state = 'close'
 
+    def save_button(self):
+        print('sucess')
+
     def show_graph(self):
         return {
             'type': 'ir.actions.act_window',
             'name': 'Graph View',
             'view_mode': 'graph',
             'view_type': 'graph',
+            'res_model': 'employee.list',
+            'target': 'current',
+           'domain':[['appraisal_name','=',self.id]],
+            'context': {'group_by': ['category']}
+        }
+
+    def show_pivot(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Pivot View',
+            'view_mode': 'pivot',
+            'view_type': 'pivot',
             'res_model': 'employee.list',
             'target': 'current',
            'domain':[['appraisal_name','=',self.id]],

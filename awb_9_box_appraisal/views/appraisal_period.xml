@@ -37,6 +37,9 @@
                 <form create="false" edit="false">
 
                     <script>
+                        $(document).ready(function(){
+                            $(".o_dropdown").hide();
+                            });
                         function allowDrop(ev) {
                         ev.preventDefault();
 
@@ -97,7 +100,6 @@
                         url:"/for_create_list",
                         data: data1,
                         });
-                        alert("Dropped Successfully");
                         window.location.reload();
                         }
                         function drop2(ev) {
@@ -136,8 +138,6 @@
                         url:"/for_create_list",
                         data: data1,
                         });
-                        alert("Dropped Successfully");
-                        window.location.reload();
                         }
                         function drop3(ev) {
                         ev.preventDefault();
@@ -174,8 +174,6 @@
                         url:"/update_employee",
                         data: data2,
                         });
-                        alert("Dropped Successfully");
-                        window.location.reload();
                         }function drop4(ev) {
                         ev.preventDefault();
                         let data = ev.dataTransfer.getData("text");
@@ -211,8 +209,6 @@
                         url:"/update_employee",
                         data: data2,
                         });
-                        alert("Dropped Successfully");
-                        window.location.reload();
                         }function drop5(ev) {
                         ev.preventDefault();
                         let data = ev.dataTransfer.getData("text");
@@ -248,8 +244,6 @@
                         url:"/update_employee",
                         data: data2,
                         });
-                        alert("Dropped Successfully");
-                        window.location.reload();
                         }function drop6(ev) {
                         ev.preventDefault();
                         let data = ev.dataTransfer.getData("text");
@@ -285,8 +279,6 @@
                         url:"/update_employee",
                         data: data2,
                         });
-                        alert("Dropped Successfully");
-                        window.location.reload();
                         }function drop7(ev) {
                         ev.preventDefault();
                         let data = ev.dataTransfer.getData("text");
@@ -322,8 +314,6 @@
                         url:"/update_employee",
                         data: data2,
                         });
-                        alert("Dropped Successfully");
-                        window.location.reload();
                         }function drop8(ev) {
                         ev.preventDefault();
                         let data = ev.dataTransfer.getData("text");
@@ -359,8 +349,6 @@
                         url:"/update_employee",
                         data: data2,
                         });
-                        alert("Dropped Successfully");
-                        window.location.reload();
                         }function drop9(ev) {
                         ev.preventDefault();
                         let data = ev.dataTransfer.getData("text");
@@ -396,7 +384,6 @@
                         url:"/update_employee",
                         data: data2,
                         });
-                        alert("Dropped Successfully");
                         window.location.reload();
                         }function dragpotentialgem(ev) {
                         let text = ev.srcElement.textContent;
@@ -831,6 +818,10 @@
                     </script>
 
                     <div style="text-align:right;">
+                        <button type="object" name="save_button"
+                               string="Save" icon="fa-save"/>
+                        <button type="object" name="show_pivot"
+                                icon="fa-list-alt"/>
                         <button type="object" name="show_graph"
                                 icon="fa-pie-chart"/>
                     </div>

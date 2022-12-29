@@ -327,3 +327,48 @@
             top: 0.638rem;
             right: 1rem;
         }
+.box {
+  width: 800px;
+  height: 20px;
+  background-color: #C0C0C0;
+  color: #fff;
+//   padding: 20px;
+  position: relative;
+//   margin: 5px;
+  float: left;
+  text-align: center;
+  size: 30px;
+}
+.topbox {
+  width: 20px;
+  height: 500px;
+  background-color: #C0C0C0;
+  color: #fff;
+  padding: 20px;
+  position: relative;
+  margin: 10px;
+  float: left;
+  text-align: center;
+}
+.box.arrow-right:after {
+  content: " ";
+
+  position: absolute;
+  right: -15px;
+  top: -15px;
+  border-top: 25px solid transparent;
+  border-right: none;
+  border-left: 15px solid #C0C0C0;
+  border-bottom: 25px solid transparent;
+}
+
+.topbox.arrow-top:after {
+  content: " ";
+  position: absolute;
+  right: 30px;
+  top: -15px;
+  border-top: none;
+  border-right: 25px solid transparent;
+  border-left: 25px solid transparent;
+  border-bottom: 25px solid black;
+}
