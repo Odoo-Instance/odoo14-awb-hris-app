@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+    <record id="survey_survey_view_form_inherit" model="ir.ui.view">
+        <field name="name">survey.survey.view.form.inherit</field>
+        <field name="model">survey.survey</field>
+        <field name="inherit_id" ref="survey.survey_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='scoring_type']" position="before">
+                <field name="scoring_type_options" widget="radio"/>
+                <field name="score_name_ids" attrs="{'invisible': [('scoring_type_options', '!=', 'score_name')]}">
+                    <tree editable="bottom">
+                        <field name="lower_range"/>
+                        <field name="upper_range"/>
+                        <field name="name"/>
+                    </tree>
+                </field>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="survey_question_form_inherit" model="ir.ui.view">
+        <field name="name">survey.question.view.form</field>
+        <field name="model">survey.question</field>
+        <field name="inherit_id" ref="survey.survey_question_form"/>
+        <field name="arch" type="xml">
+            <field name="question_type" position="after">
+                <field name="scoring_type_options" invisible="1"/>
+                <field name="question_weight" attrs="{'invisible': ['|', ('scoring_type', '=', 'no_scoring'), '|', ('scoring_type_options', 'not in', ('weighted_sum', 'score_name')), ('question_type', '=', 'matrix')]}"/>
+            </field>
+            <!-- <xpath expr="//page/field[@name='scoring_type']" position="after">
+                <field name="scoring_type_options" invisible="1"/>
+            </xpath>
+            <xpath expr="//page/field[@name='labels_ids']/tree/field[@name='answer_score']" position="after">
+                <field name="question_weight" attrs="{'column_invisible': ['|', ('parent.scoring_type', '=', 'no_scoring'), '|', ('parent.scoring_type_options', '!=', 'weighted_sum'), ('parent.question_type', '=', 'matrix')]}"/>
+            </xpath> -->
+        </field>
+    </record>
+
+    <record id="survey_user_input_view_form_inherit" model="ir.ui.view">
+        <field name="name">survey.user_input.view.form</field>
+        <field name="model">survey.user_input</field>
+        <field name="inherit_id" ref="survey.survey_user_input_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='scoring_type']" position="after">
+                <field name="scoring_type_options"/>
+            </xpath> 
+        </field>
+    </record>
+
+    <template id="survey_templates_inherit_website_slides" inherit_id="survey.sfinished">
+        <xpath expr="//div[hasclass('row')]//div[hasclass('col')]//div" position="replace">
+            <div>You scored <t t-if="survey.scoring_type_options == 'score_name'">
+                <t t-esc="answer.quizz_score" />
+                <div>Score name: <t t-esc="survey.score_name_ids.filtered(lambda x: x.lower_range &lt;= answer.quizz_score and x.upper_range &gt; answer.quizz_score).name"/></div>
+            </t>
+            <t t-else=""><t t-esc="answer.quizz_score" /></t><t t-if="survey.scoring_type_options == 'percentage'">%</t></div>
+        </xpath>
+    </template>
+</data></odoo>
